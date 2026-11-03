@@ -1,0 +1,11 @@
+/* Display copy only. Colours come from the site's theme tokens. */
+.display-dialog {
+  max-inline-size: min(460px, calc(100vw - 32px)); padding: 24px; border-radius: var(--radius-lg);
+  border: 1px solid var(--line-2); background: var(--surface-solid); color: var(--text); box-shadow: var(--shadow-lg);
+}
+.display-dialog::backdrop { background: rgb(5 5 6 / 60%); }
+.display-dialog h2 { font-size: 1.25rem; margin-block-end: 8px; }
+.display-dialog p { color: var(--text-2); }
+.display-dialog__actions { display: flex; justify-content: flex-end; }
+.display-entry { margin-block: 16px; padding: 16px; border-radius: var(--radius); border: 1px dashed var(--line-2); background: var(--gold-tint); text-align: center; }
+.display-entry p { margin-block-end: 12px; }
