@@ -1,6 +1,6 @@
 <!doctype html>
 
-<html lang="en" dir="ltr" class="no-js">
+<html lang="en" dir="ltr" class="no-js" data-accent="gold" data-default-theme="dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,17 +20,19 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&display=swap">
-  <link rel="stylesheet" href="../../../../static/css/taui.52f208c3f38a.css">
+  <link rel="stylesheet" href="../../../../static/css/taui.92ffdbb45d2c.css">
   <script>
-    document.documentElement.classList.replace("no-js", "js");
-    try {
-      if (localStorage.getItem("taui-theme") === "light") {
-        document.documentElement.dataset.theme = "light";
+    (function () {
+      var root = document.documentElement, saved = null;
+      root.classList.replace("no-js", "js");
+      try { saved = localStorage.getItem("taui-theme"); } catch (e) { /* storage blocked: use the site default */ }
+      if (saved === "light" || (!saved && root.dataset.defaultTheme === "light")) {
+        root.dataset.theme = "light";
         document.querySelector('meta[name="theme-color"]').content = "#FAF7F0";
       }
-    } catch (e) { /* storage blocked: stay on the default theme */ }
+    })();
   </script>
-  <script src="../../../../static/js/app.bb1b5153d50b.js" defer></script>
+  <script src="../../../../static/js/app.c7870bd844bf.js" defer></script>
   
 <meta name="robots" content="noindex, nofollow"><meta name="display-page" content="checkout"><meta name="display-checkout" content="index.html"><link rel="stylesheet" href="../../../../display/display.css"><script src="../../../../display/display.js" defer></script></head>
 <body class="">
@@ -49,6 +51,7 @@
 
     <nav class="nav" aria-label="Main">
       <ul class="nav__list">
+        <li><a class="nav__link" href="../../../index.html" >Home</a></li>
         <li><a class="nav__link" href="../../../trips/index.html" >Explore trips</a></li>
         <li><a class="nav__link" href="../../../plan/index.html" >Custom trip</a></li>
         <li><a class="nav__link" href="../../../index.html#destinations">Destinations</a></li>
@@ -78,7 +81,7 @@
       </details>
       
 
-      <a class="btn btn--accent" href="../../../plan/index.html">Build my trip</a>
+      <a class="btn btn--accent" href="../../../trips/index.html">Trips</a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" data-menu-toggle>
         <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></svg><span class="visually-hidden">Open menu</span>
       </button>
@@ -87,6 +90,7 @@
   <div class="mobile-nav" id="mobile-nav" hidden>
     <div class="container">
       <ul>
+        <li><a href="../../../index.html"><svg class="icon icon--sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg>Home</a></li>
         <li><a href="../../../trips/index.html">Explore trips</a></li>
         <li><a href="../../../plan/index.html">Custom trip</a></li>
         <li><a href="../../../index.html#destinations">Destinations</a></li>
@@ -98,6 +102,7 @@
   </div>
 </header>
 
+  
   
   
   
@@ -193,7 +198,8 @@
   </div>
 </footer>
 
-  <script id="taui-i18n" type="application/json">{"openMenu": "Open menu", "closeMenu": "Close menu", "estimate": "Estimated total", "groupDiscount": "Group discount", "perAdult": "per adult", "adultName": "Adult %(n)s \u2014 full name", "adultsLine": "%(n)s \u00d7 adult", "childrenLine": "%(n)s \u00d7 child", "childName": "Child %(n)s \u2014 full name", "stepIncomplete": "Please complete the highlighted fields to continue.", "notProvided": "Not provided", "none": "None selected", "days": "days", "adults": "Adults", "children": "Children", "flexible": "Flexible dates", "close": "Close", "next": "Next", "previous": "Previous", "photo": "Photo", "confirmAction": "Are you sure?", "edit": "Edit", "listSep": ", ", "currencyPrefix": "EGP ", "currencySuffix": ""}</script>
+  
+  <script id="taui-i18n" type="application/json">{"openMenu": "Open menu", "closeMenu": "Close menu", "estimate": "Estimated total", "groupDiscount": "Group discount", "perAdult": "per adult", "adultName": "Adult %(n)s \u2014 full name", "adultsLine": "%(n)s \u00d7 adult", "childrenLine": "%(n)s \u00d7 child", "childName": "Child %(n)s \u2014 full name", "stepIncomplete": "Please complete the highlighted fields to continue.", "notProvided": "Not provided", "none": "None selected", "days": "days", "adults": "Adults", "children": "Children", "flexible": "Flexible dates", "close": "Close", "next": "Next", "previous": "Previous", "photo": "Photo", "confirmAction": "Are you sure?", "edit": "Edit", "showPassword": "Show", "hidePassword": "Hide", "listSep": ", ", "currencyPrefix": "EGP ", "currencySuffix": ""}</script>
   
 </body>
 </html>

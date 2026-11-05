@@ -1,6 +1,6 @@
 <!doctype html>
 
-<html lang="en" dir="ltr" class="no-js">
+<html lang="en" dir="ltr" class="no-js" data-accent="gold" data-default-theme="dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,17 +19,19 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&display=swap">
-  <link rel="stylesheet" href="../../static/css/taui.52f208c3f38a.css">
+  <link rel="stylesheet" href="../../static/css/taui.92ffdbb45d2c.css">
   <script>
-    document.documentElement.classList.replace("no-js", "js");
-    try {
-      if (localStorage.getItem("taui-theme") === "light") {
-        document.documentElement.dataset.theme = "light";
+    (function () {
+      var root = document.documentElement, saved = null;
+      root.classList.replace("no-js", "js");
+      try { saved = localStorage.getItem("taui-theme"); } catch (e) { /* storage blocked: use the site default */ }
+      if (saved === "light" || (!saved && root.dataset.defaultTheme === "light")) {
+        root.dataset.theme = "light";
         document.querySelector('meta[name="theme-color"]').content = "#FAF7F0";
       }
-    } catch (e) { /* storage blocked: stay on the default theme */ }
+    })();
   </script>
-  <script src="../../static/js/app.bb1b5153d50b.js" defer></script>
+  <script src="../../static/js/app.c7870bd844bf.js" defer></script>
   
 <meta name="robots" content="noindex, nofollow"><meta name="display-page" content="page"><meta name="display-checkout" content="../pay/PY-H5YKCF28/test-checkout/index.html"><link rel="stylesheet" href="../../display/display.css"><script src="../../display/display.js" defer></script></head>
 <body class="">
@@ -48,6 +50,7 @@
 
     <nav class="nav" aria-label="Main">
       <ul class="nav__list">
+        <li><a class="nav__link" href="../index.html" >Home</a></li>
         <li><a class="nav__link" href="index.html" aria-current="page">Explore trips</a></li>
         <li><a class="nav__link" href="../plan/index.html" >Custom trip</a></li>
         <li><a class="nav__link" href="../index.html#destinations">Destinations</a></li>
@@ -77,7 +80,7 @@
       </details>
       
 
-      <a class="btn btn--accent" href="../plan/index.html">Build my trip</a>
+      <a class="btn btn--accent" href="index.html">Trips</a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" data-menu-toggle>
         <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></svg><span class="visually-hidden">Open menu</span>
       </button>
@@ -86,6 +89,7 @@
   <div class="mobile-nav" id="mobile-nav" hidden>
     <div class="container">
       <ul>
+        <li><a href="../index.html"><svg class="icon icon--sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg>Home</a></li>
         <li><a href="index.html">Explore trips</a></li>
         <li><a href="../plan/index.html">Custom trip</a></li>
         <li><a href="../index.html#destinations">Destinations</a></li>
@@ -97,6 +101,7 @@
   </div>
 </header>
 
+  
   
   
   
@@ -130,64 +135,6 @@
     <summary><svg class="icon icon--sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 4h-7"/><path d="M10 4H3"/><path d="M21 12h-9"/><path d="M8 12H3"/><path d="M21 20h-5"/><path d="M12 20H3"/><path d="M14 2v4"/><path d="M8 10v4"/><path d="M16 18v4"/></svg><span>Filters</span><svg class="icon icon--sm icon--toggle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></summary>
     <form class="filters__body" id="filter-form" method="get" action="#" data-autosubmit>
       <div class="field">
-  <label for="id_category">Trip type</label>
-  <select name="category" class="select" id="id_category">
-  <option value="" selected>Any</option>
-
-  <option value="nature-adventure">Nature &amp; adventure</option>
-
-  <option value="history">Historical sites</option>
-
-  <option value="relaxation">Relaxation</option>
-
-  <option value="beaches">Beaches &amp; sea</option>
-
-  <option value="culture">Culture &amp; local life</option>
-
-  <option value="family">Family friendly</option>
-
-  <option value="honeymoon">Honeymoon</option>
-
-</select>
-  
-  
-</div>
-
-      <div class="field">
-  <label for="id_style">Travel style</label>
-  <select name="style" class="select" id="id_style">
-  <option value="" selected>Any</option>
-
-  <option value="economy">Economy</option>
-
-  <option value="economy-plus">Economy Plus</option>
-
-  <option value="business">Business Class</option>
-
-  <option value="first">First Class</option>
-
-</select>
-  
-  
-</div>
-
-      <div class="field">
-  <label for="id_duration">Duration</label>
-  <select name="duration" class="select" id="id_duration">
-  <option value="" selected>Any</option>
-
-  <option value="short">1–3 days</option>
-
-  <option value="medium">4–6 days</option>
-
-  <option value="long">7 days or more</option>
-
-</select>
-  
-  
-</div>
-
-      <div class="field">
   <label for="id_budget">Budget per person</label>
   <select name="budget" class="select" id="id_budget">
   <option value="" selected>Any</option>
@@ -212,13 +159,74 @@
   
 </div>
 
-      <div class="field">
+      <details class="filters-more">
+        <summary><svg class="icon icon--sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 4h-7"/><path d="M10 4H3"/><path d="M21 12h-9"/><path d="M8 12H3"/><path d="M21 20h-5"/><path d="M12 20H3"/><path d="M14 2v4"/><path d="M8 10v4"/><path d="M16 18v4"/></svg>More filters</summary>
+        <div class="field">
+  <label for="id_category">Trip type</label>
+  <select name="category" class="select" id="id_category">
+  <option value="" selected>Any</option>
+
+  <option value="nature-adventure">Nature &amp; adventure</option>
+
+  <option value="history">Historical sites</option>
+
+  <option value="relaxation">Relaxation</option>
+
+  <option value="beaches">Beaches &amp; sea</option>
+
+  <option value="culture">Culture &amp; local life</option>
+
+  <option value="family">Family friendly</option>
+
+  <option value="honeymoon">Honeymoon</option>
+
+</select>
+  
+  
+</div>
+
+        <div class="field">
+  <label for="id_style">Travel style</label>
+  <select name="style" class="select" id="id_style">
+  <option value="" selected>Any</option>
+
+  <option value="economy">Economy</option>
+
+  <option value="economy-plus">Economy Plus</option>
+
+  <option value="business">Business Class</option>
+
+  <option value="first">First Class</option>
+
+</select>
+  
+  
+</div>
+
+        <div class="field">
+  <label for="id_duration">Duration</label>
+  <select name="duration" class="select" id="id_duration">
+  <option value="" selected>Any</option>
+
+  <option value="short">1–3 days</option>
+
+  <option value="medium">4–6 days</option>
+
+  <option value="long">7 days or more</option>
+
+</select>
+  
+  
+</div>
+
+        <div class="field">
   <label for="id_travelers">Travelers</label>
   <input type="number" name="travelers" min="1" max="25" class="input" id="id_travelers">
   
   
 </div>
 
+      </details>
       <div class="filters__actions">
         <button class="btn btn--block" type="submit">Apply filters</button>
         <a class="btn btn--ghost" href="index.html">Clear</a>
@@ -734,7 +742,8 @@
   </div>
 </footer>
 
-  <script id="taui-i18n" type="application/json">{"openMenu": "Open menu", "closeMenu": "Close menu", "estimate": "Estimated total", "groupDiscount": "Group discount", "perAdult": "per adult", "adultName": "Adult %(n)s \u2014 full name", "adultsLine": "%(n)s \u00d7 adult", "childrenLine": "%(n)s \u00d7 child", "childName": "Child %(n)s \u2014 full name", "stepIncomplete": "Please complete the highlighted fields to continue.", "notProvided": "Not provided", "none": "None selected", "days": "days", "adults": "Adults", "children": "Children", "flexible": "Flexible dates", "close": "Close", "next": "Next", "previous": "Previous", "photo": "Photo", "confirmAction": "Are you sure?", "edit": "Edit", "listSep": ", ", "currencyPrefix": "EGP ", "currencySuffix": ""}</script>
+  
+  <script id="taui-i18n" type="application/json">{"openMenu": "Open menu", "closeMenu": "Close menu", "estimate": "Estimated total", "groupDiscount": "Group discount", "perAdult": "per adult", "adultName": "Adult %(n)s \u2014 full name", "adultsLine": "%(n)s \u00d7 adult", "childrenLine": "%(n)s \u00d7 child", "childName": "Child %(n)s \u2014 full name", "stepIncomplete": "Please complete the highlighted fields to continue.", "notProvided": "Not provided", "none": "None selected", "days": "days", "adults": "Adults", "children": "Children", "flexible": "Flexible dates", "close": "Close", "next": "Next", "previous": "Previous", "photo": "Photo", "confirmAction": "Are you sure?", "edit": "Edit", "showPassword": "Show", "hidePassword": "Hide", "listSep": ", ", "currencyPrefix": "EGP ", "currencySuffix": ""}</script>
   
 </body>
 </html>

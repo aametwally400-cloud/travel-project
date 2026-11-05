@@ -1,6 +1,6 @@
 <!doctype html>
 
-<html lang="ar" dir="rtl" class="no-js">
+<html lang="ar" dir="rtl" class="no-js" data-accent="gold" data-default-theme="dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,17 +18,19 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&display=swap">
-  <link rel="stylesheet" href="../../static/css/taui.52f208c3f38a.css">
+  <link rel="stylesheet" href="../../static/css/taui.92ffdbb45d2c.css">
   <script>
-    document.documentElement.classList.replace("no-js", "js");
-    try {
-      if (localStorage.getItem("taui-theme") === "light") {
-        document.documentElement.dataset.theme = "light";
+    (function () {
+      var root = document.documentElement, saved = null;
+      root.classList.replace("no-js", "js");
+      try { saved = localStorage.getItem("taui-theme"); } catch (e) { /* storage blocked: use the site default */ }
+      if (saved === "light" || (!saved && root.dataset.defaultTheme === "light")) {
+        root.dataset.theme = "light";
         document.querySelector('meta[name="theme-color"]').content = "#FAF7F0";
       }
-    } catch (e) { /* storage blocked: stay on the default theme */ }
+    })();
   </script>
-  <script src="../../static/js/app.bb1b5153d50b.js" defer></script>
+  <script src="../../static/js/app.c7870bd844bf.js" defer></script>
   
 <meta name="robots" content="noindex, nofollow"><meta name="display-page" content="page"><meta name="display-checkout" content="../../pay/PY-H5YKCF28/test-checkout/index.html"><link rel="stylesheet" href="../../display/display.css"><script src="../../display/display.js" defer></script></head>
 <body class="">
@@ -47,6 +49,7 @@
 
     <nav class="nav" aria-label="القائمة الرئيسية">
       <ul class="nav__list">
+        <li><a class="nav__link" href="../../index.html" >الرئيسية</a></li>
         <li><a class="nav__link" href="../../trips/index.html" >استكشف الرحلات</a></li>
         <li><a class="nav__link" href="../../plan/index.html" >رحلة مخصصة</a></li>
         <li><a class="nav__link" href="../../index.html#destinations">الوجهات</a></li>
@@ -76,7 +79,7 @@
       </details>
       
 
-      <a class="btn btn--accent" href="../../plan/index.html">صمّم رحلتي</a>
+      <a class="btn btn--accent" href="../../trips/index.html">الرحلات</a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" data-menu-toggle>
         <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></svg><span class="visually-hidden">فتح القائمة</span>
       </button>
@@ -85,6 +88,7 @@
   <div class="mobile-nav" id="mobile-nav" hidden>
     <div class="container">
       <ul>
+        <li><a href="../../index.html"><svg class="icon icon--sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg>الرئيسية</a></li>
         <li><a href="../../trips/index.html">استكشف الرحلات</a></li>
         <li><a href="../../plan/index.html">رحلة مخصصة</a></li>
         <li><a href="../../index.html#destinations">الوجهات</a></li>
@@ -96,6 +100,7 @@
   </div>
 </header>
 
+  
   
   
   
@@ -272,7 +277,8 @@
   </div>
 </footer>
 
-  <script id="taui-i18n" type="application/json">{"openMenu": "\u0641\u062a\u062d \u0627\u0644\u0642\u0627\u0626\u0645\u0629", "closeMenu": "\u0625\u063a\u0644\u0627\u0642 \u0627\u0644\u0642\u0627\u0626\u0645\u0629", "estimate": "\u0627\u0644\u0625\u062c\u0645\u0627\u0644\u064a \u0627\u0644\u062a\u0642\u062f\u064a\u0631\u064a", "groupDiscount": "\u062e\u0635\u0645 \u0627\u0644\u0645\u062c\u0645\u0648\u0639\u0629", "perAdult": "\u0644\u0644\u0628\u0627\u0644\u063a", "adultName": "\u0627\u0644\u0628\u0627\u0644\u063a %(n)s \u2014 \u0627\u0644\u0627\u0633\u0645 \u0628\u0627\u0644\u0643\u0627\u0645\u0644", "adultsLine": "%(n)s \u00d7 \u0628\u0627\u0644\u063a", "childrenLine": "%(n)s \u00d7 \u0637\u0641\u0644", "childName": "\u0627\u0644\u0637\u0641\u0644 %(n)s \u2014 \u0627\u0644\u0627\u0633\u0645 \u0628\u0627\u0644\u0643\u0627\u0645\u0644", "stepIncomplete": "\u064a\u064f\u0631\u062c\u0649 \u0627\u0633\u062a\u0643\u0645\u0627\u0644 \u0627\u0644\u062d\u0642\u0648\u0644 \u0627\u0644\u0645\u062d\u062f\u062f\u0629 \u0644\u0644\u0645\u062a\u0627\u0628\u0639\u0629.", "notProvided": "\u063a\u064a\u0631 \u0645\u0630\u0643\u0648\u0631", "none": "\u0644\u0645 \u064a\u062a\u0645 \u0627\u0644\u0627\u062e\u062a\u064a\u0627\u0631", "days": "\u0623\u064a\u0627\u0645", "adults": "\u0627\u0644\u0628\u0627\u0644\u063a\u0648\u0646", "children": "\u0627\u0644\u0623\u0637\u0641\u0627\u0644", "flexible": "\u062a\u0648\u0627\u0631\u064a\u062e \u0645\u0631\u0646\u0629", "close": "\u0625\u063a\u0644\u0627\u0642", "next": "\u0627\u0644\u062a\u0627\u0644\u064a", "previous": "\u0627\u0644\u0633\u0627\u0628\u0642", "photo": "\u0635\u0648\u0631\u0629", "confirmAction": "\u0647\u0644 \u0623\u0646\u062a \u0645\u062a\u0623\u0643\u062f\u061f", "edit": "\u062a\u0639\u062f\u064a\u0644", "listSep": "\u060c ", "currencyPrefix": "", "currencySuffix": " \u062c.\u0645"}</script>
+  
+  <script id="taui-i18n" type="application/json">{"openMenu": "\u0641\u062a\u062d \u0627\u0644\u0642\u0627\u0626\u0645\u0629", "closeMenu": "\u0625\u063a\u0644\u0627\u0642 \u0627\u0644\u0642\u0627\u0626\u0645\u0629", "estimate": "\u0627\u0644\u0625\u062c\u0645\u0627\u0644\u064a \u0627\u0644\u062a\u0642\u062f\u064a\u0631\u064a", "groupDiscount": "\u062e\u0635\u0645 \u0627\u0644\u0645\u062c\u0645\u0648\u0639\u0629", "perAdult": "\u0644\u0644\u0628\u0627\u0644\u063a", "adultName": "\u0627\u0644\u0628\u0627\u0644\u063a %(n)s \u2014 \u0627\u0644\u0627\u0633\u0645 \u0628\u0627\u0644\u0643\u0627\u0645\u0644", "adultsLine": "%(n)s \u00d7 \u0628\u0627\u0644\u063a", "childrenLine": "%(n)s \u00d7 \u0637\u0641\u0644", "childName": "\u0627\u0644\u0637\u0641\u0644 %(n)s \u2014 \u0627\u0644\u0627\u0633\u0645 \u0628\u0627\u0644\u0643\u0627\u0645\u0644", "stepIncomplete": "\u064a\u064f\u0631\u062c\u0649 \u0627\u0633\u062a\u0643\u0645\u0627\u0644 \u0627\u0644\u062d\u0642\u0648\u0644 \u0627\u0644\u0645\u062d\u062f\u062f\u0629 \u0644\u0644\u0645\u062a\u0627\u0628\u0639\u0629.", "notProvided": "\u063a\u064a\u0631 \u0645\u0630\u0643\u0648\u0631", "none": "\u0644\u0645 \u064a\u062a\u0645 \u0627\u0644\u0627\u062e\u062a\u064a\u0627\u0631", "days": "\u0623\u064a\u0627\u0645", "adults": "\u0627\u0644\u0628\u0627\u0644\u063a\u0648\u0646", "children": "\u0627\u0644\u0623\u0637\u0641\u0627\u0644", "flexible": "\u062a\u0648\u0627\u0631\u064a\u062e \u0645\u0631\u0646\u0629", "close": "\u0625\u063a\u0644\u0627\u0642", "next": "\u0627\u0644\u062a\u0627\u0644\u064a", "previous": "\u0627\u0644\u0633\u0627\u0628\u0642", "photo": "\u0635\u0648\u0631\u0629", "confirmAction": "\u0647\u0644 \u0623\u0646\u062a \u0645\u062a\u0623\u0643\u062f\u061f", "edit": "\u062a\u0639\u062f\u064a\u0644", "showPassword": "\u0625\u0638\u0647\u0627\u0631", "hidePassword": "\u0625\u062e\u0641\u0627\u0621", "listSep": "\u060c ", "currencyPrefix": "", "currencySuffix": " \u062c.\u0645"}</script>
   
 </body>
 </html>

@@ -1,6 +1,6 @@
 <!doctype html>
 
-<html lang="en" dir="ltr" class="no-js">
+<html lang="en" dir="ltr" class="no-js" data-accent="gold" data-default-theme="dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,17 +19,19 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&display=swap">
-  <link rel="stylesheet" href="../../static/css/taui.52f208c3f38a.css">
+  <link rel="stylesheet" href="../../static/css/taui.92ffdbb45d2c.css">
   <script>
-    document.documentElement.classList.replace("no-js", "js");
-    try {
-      if (localStorage.getItem("taui-theme") === "light") {
-        document.documentElement.dataset.theme = "light";
+    (function () {
+      var root = document.documentElement, saved = null;
+      root.classList.replace("no-js", "js");
+      try { saved = localStorage.getItem("taui-theme"); } catch (e) { /* storage blocked: use the site default */ }
+      if (saved === "light" || (!saved && root.dataset.defaultTheme === "light")) {
+        root.dataset.theme = "light";
         document.querySelector('meta[name="theme-color"]').content = "#FAF7F0";
       }
-    } catch (e) { /* storage blocked: stay on the default theme */ }
+    })();
   </script>
-  <script src="../../static/js/app.bb1b5153d50b.js" defer></script>
+  <script src="../../static/js/app.c7870bd844bf.js" defer></script>
   
 <meta name="robots" content="noindex, nofollow"><meta name="display-page" content="plan"><meta name="display-checkout" content="../pay/PY-H5YKCF28/test-checkout/index.html"><link rel="stylesheet" href="../../display/display.css"><script src="../../display/display.js" defer></script></head>
 <body class="">
@@ -48,6 +50,7 @@
 
     <nav class="nav" aria-label="Main">
       <ul class="nav__list">
+        <li><a class="nav__link" href="../index.html" >Home</a></li>
         <li><a class="nav__link" href="../trips/index.html" >Explore trips</a></li>
         <li><a class="nav__link" href="index.html" aria-current="page">Custom trip</a></li>
         <li><a class="nav__link" href="../index.html#destinations">Destinations</a></li>
@@ -77,7 +80,7 @@
       </details>
       
 
-      <a class="btn btn--accent" href="index.html">Build my trip</a>
+      <a class="btn btn--accent" href="../trips/index.html">Trips</a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" data-menu-toggle>
         <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></svg><span class="visually-hidden">Open menu</span>
       </button>
@@ -86,6 +89,7 @@
   <div class="mobile-nav" id="mobile-nav" hidden>
     <div class="container">
       <ul>
+        <li><a href="../index.html"><svg class="icon icon--sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg>Home</a></li>
         <li><a href="../trips/index.html">Explore trips</a></li>
         <li><a href="index.html">Custom trip</a></li>
         <li><a href="../index.html#destinations">Destinations</a></li>
@@ -97,6 +101,7 @@
   </div>
 </header>
 
+  
   
   
   
@@ -113,7 +118,7 @@
 <div class="container flow flow--builder">
   <form method="post" novalidate data-wizard class="panel" >
     <ol class="wizard-steps js-only" data-wizard-steps>
-      <li><button type="button" data-goto="0">1. Destination</button></li><li><button type="button" data-goto="1">2. Dates</button></li><li><button type="button" data-goto="2">3. Travelers</button></li><li><button type="button" data-goto="3">4. Travel style</button></li><li><button type="button" data-goto="4">5. Preferences</button></li><li><button type="button" data-goto="5">6. Contact details</button></li><li><button type="button" data-goto="6">7. Review</button></li>
+      <li><button type="button" data-goto="0">1. Where and when</button></li><li><button type="button" data-goto="1">2. Travelers and style</button></li><li><button type="button" data-goto="2">3. Your details</button></li>
     </ol>
 
     
@@ -121,8 +126,9 @@
 
     
     <fieldset class="wizard-step" data-wizard-step>
-      <legend>Where would you like to go?</legend>
-      <p class="wizard-step__hint">Choose one or more destinations — or describe somewhere else.</p>
+      <legend>Where and when?</legend>
+      <p class="wizard-step__hint">Pick a destination and your travel date.</p>
+      <h3 class="wizard-sub">Where would you like to go?</h3>
       <ul class="choices choices--dest">
         
         <li class="choice choice--image"><input type="checkbox" name="destinations" value="1" id="id_destinations_0"><span class="choice__box">
@@ -212,16 +218,12 @@
   
 </div>
 </div>
-    </fieldset>
-
     
-    <fieldset class="wizard-step" data-wizard-step>
-      <legend>When are you travelling?</legend>
-      <p class="wizard-step__hint">Choose your travel date and how many days the trip should last.</p>
+      <h3 class="wizard-sub">When are you travelling?</h3>
       <div class="form-grid form-grid--2">
         <div class="field">
   <label for="id_start_date">Travel date<span class="req" aria-hidden="true">*</span></label>
-  <input type="date" name="start_date" class="input" min="2026-11-07" max="2028-04-27" required id="id_start_date">
+  <input type="date" name="start_date" class="input" min="2026-11-09" max="2028-04-29" required id="id_start_date">
   
   
 </div>
@@ -245,8 +247,9 @@
 
     
     <fieldset class="wizard-step" data-wizard-step>
-      <legend>Who's coming?</legend>
-      <p class="wizard-step__hint">Tell us how many adults and children are travelling.</p>
+      <legend>Who is travelling, and how?</legend>
+      <p class="wizard-step__hint">Travelers, comfort level and what you enjoy.</p>
+      <h3 class="wizard-sub">Who's coming?</h3>
       <div class="form-grid form-grid--2">
         
         <div class="field">
@@ -271,12 +274,8 @@
         
       </div>
       <p class="help">Up to 25 travelers per request. For larger groups, please contact us.</p>
-    </fieldset>
-
     
-    <fieldset class="wizard-step" data-wizard-step>
-      <legend>Choose your travel style</legend>
-      <p class="wizard-step__hint">TAUI comfort tiers set the level of accommodation, transport and service. They are not airline seat classes.</p>
+      <h3 class="wizard-sub">Choose your travel style</h3>
       <ul class="choices choices--wide">
         
         <li class="choice"><input type="radio" name="tier" value="1" id="id_tier_0" required><span class="choice__box"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.28 1.28L3 12l5.8 1.9a2 2 0 0 1 1.28 1.28L12 21l1.9-5.8a2 2 0 0 1 1.28-1.28L21 12l-5.8-1.9a2 2 0 0 1-1.28-1.28Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg><span class="choice__name">Economy<small>Great value: comfortable, simple stays and shared transfers.</small></span><span class="choice__check"><svg class="icon icon--sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"/></svg></span></span></li>
@@ -289,12 +288,8 @@
         
       </ul>
       
-    </fieldset>
-
     
-    <fieldset class="wizard-step" data-wizard-step>
-      <legend>What do you enjoy?</legend>
-      <p class="wizard-step__hint">Pick as many as you like. This helps us shape your itinerary.</p>
+      <h3 class="wizard-sub">What do you enjoy?</h3>
       <ul class="choices">
         
         <li class="choice"><input type="checkbox" name="interests" value="1" id="id_interests_0"><span class="choice__box"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></svg><span class="choice__name">Nature &amp; adventure</span><span class="choice__check"><svg class="icon icon--sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"/></svg></span></span></li>
@@ -369,15 +364,10 @@
   
 </div>
 
-    </fieldset>
-
-    
-    <fieldset class="wizard-step" data-wizard-step data-review-step>
-      <legend>Review and send</legend>
-      <p class="wizard-step__hint">Check your answers. You can go back to any step to make changes.</p>
-      <div class="js-only" data-review></div>
       <div class="alert alert--info mt-3"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg><p>Sending this form creates a request, not a booking. Our team will review it and contact you with a proposed itinerary and quote.</p></div>
     </fieldset>
+
+
 
     <div class="wizard-nav">
       <button type="button" class="btn btn--ghost js-only" data-prev><svg class="icon icon--dir icon--sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>Back</button>
@@ -463,7 +453,8 @@
   </div>
 </footer>
 
-  <script id="taui-i18n" type="application/json">{"openMenu": "Open menu", "closeMenu": "Close menu", "estimate": "Estimated total", "groupDiscount": "Group discount", "perAdult": "per adult", "adultName": "Adult %(n)s \u2014 full name", "adultsLine": "%(n)s \u00d7 adult", "childrenLine": "%(n)s \u00d7 child", "childName": "Child %(n)s \u2014 full name", "stepIncomplete": "Please complete the highlighted fields to continue.", "notProvided": "Not provided", "none": "None selected", "days": "days", "adults": "Adults", "children": "Children", "flexible": "Flexible dates", "close": "Close", "next": "Next", "previous": "Previous", "photo": "Photo", "confirmAction": "Are you sure?", "edit": "Edit", "listSep": ", ", "currencyPrefix": "EGP ", "currencySuffix": ""}</script>
+  
+  <script id="taui-i18n" type="application/json">{"openMenu": "Open menu", "closeMenu": "Close menu", "estimate": "Estimated total", "groupDiscount": "Group discount", "perAdult": "per adult", "adultName": "Adult %(n)s \u2014 full name", "adultsLine": "%(n)s \u00d7 adult", "childrenLine": "%(n)s \u00d7 child", "childName": "Child %(n)s \u2014 full name", "stepIncomplete": "Please complete the highlighted fields to continue.", "notProvided": "Not provided", "none": "None selected", "days": "days", "adults": "Adults", "children": "Children", "flexible": "Flexible dates", "close": "Close", "next": "Next", "previous": "Previous", "photo": "Photo", "confirmAction": "Are you sure?", "edit": "Edit", "showPassword": "Show", "hidePassword": "Hide", "listSep": ", ", "currencyPrefix": "EGP ", "currencySuffix": ""}</script>
   
 </body>
 </html>

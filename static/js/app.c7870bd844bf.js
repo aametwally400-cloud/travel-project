@@ -24,9 +24,14 @@
   function initThemeToggle() {
     var root = document.documentElement;
     var meta = $('meta[name="theme-color"]');
+    var fading = null;
     $$("[data-theme-toggle]").forEach(function (button) {
       button.addEventListener("click", function () {
         var light = root.dataset.theme !== "light";
+        // Let colours ease across for a moment (the CSS skips this for reduced motion).
+        root.classList.add("theme-fade");
+        clearTimeout(fading);
+        fading = setTimeout(function () { root.classList.remove("theme-fade"); }, 450);
         if (light) root.dataset.theme = "light"; else delete root.dataset.theme;
         if (meta) meta.content = light ? "#FAF7F0" : "#0A0A0B";
         try { localStorage.setItem("taui-theme", light ? "light" : "dark"); } catch (e) { /* lasts until reload */ }
@@ -135,7 +140,14 @@
       (rules.discounts || []).forEach(function (d) { if (a + c >= d.from && Number(d.percent) > pct) pct = Number(d.percent); });
       var discount = Math.round(subtotal * pct) / 100;
       var total = subtotal - discount;
-      $$("[data-estimate-total]").forEach(function (out) { out.textContent = money(total); });
+      $$("[data-estimate-total]").forEach(function (out) {
+        var text = money(total);
+        if (out.textContent === text) return;
+        out.textContent = text;
+        out.classList.remove("is-updated");
+        void out.offsetWidth; // restart the short "changed" pulse
+        out.classList.add("is-updated");
+      });
       var set = function (sel, label, value, show) {
         var row = $(sel);
         if (!row) return;
@@ -196,17 +208,14 @@
         if (f.closest("[hidden]") || f.type === "hidden" || f.closest(".honeypot")) return;
         if (!f.checkValidity()) invalid.push(f);
       });
-      var idx = steps.indexOf(step);
-      if (idx === 0) {
+      if ($("[name=other_destinations]", step)) {
         var any = $$("[name=destinations]:checked", step).length || ($("[name=other_destinations]", step).value || "").trim();
         if (!any) invalid.push($("[name=destinations]", step) || $("[name=other_destinations]", step));
       }
-      if (idx === 1) {
-        var start = $("[name=start_date]", step), days = $("[name=duration_days]", step);
-        if (!start.value) invalid.push(start);
-        if (!(Number(days.value) >= 1)) invalid.push(days);
-      }
-      if (idx === 3 && !$("[name=tier]:checked", step)) invalid.push($("[name=tier]", step));
+      var start = $("[name=start_date]", step), days = $("[name=duration_days]", step);
+      if (start && !start.value) invalid.push(start);
+      if (days && !(Number(days.value) >= 1)) invalid.push(days);
+      if ($("[name=tier]", step) && !$("[name=tier]:checked", step)) invalid.push($("[name=tier]", step));
       if (!invalid.length) return true;
       invalid.forEach(function (f) { if (f) f.setAttribute("aria-invalid", "true"); });
       var alert = el("div", { "class": "alert alert--error step-alert mb-2", role: "alert" });
@@ -364,7 +373,16 @@
   }
 
   /* --- Gentle reveal-on-scroll for cards ---------------------------------- */
+  // Public pages only, and only for blocks that start below the fold, so nothing on
+  // screen at load ever blinks out and back in.
+  var AUTO_REVEAL = ".section-head, .lux-card, .steps li, .path-card, .stat-card, .package-card, .dest-card, " +
+    ".faq details, .cta-card, .trip-block, .split__media, .newsletter-band";
   function initReveal() {
+    if (!document.body.classList.contains("staff-body")) {
+      $$(AUTO_REVEAL).forEach(function (el) {
+        if (!el.closest(".reveal") && el.getBoundingClientRect().top > window.innerHeight) el.classList.add("reveal");
+      });
+    }
     var items = $$(".reveal");
     if (!items.length) return;
     if (!("IntersectionObserver" in window)) {
@@ -372,11 +390,44 @@
       return;
     }
     var io = new IntersectionObserver(function (entries) {
+      var shown = 0;
       entries.forEach(function (entry) {
-        if (entry.isIntersecting) { entry.target.classList.add("is-visible"); io.unobserve(entry.target); }
+        if (!entry.isIntersecting) return;
+        var el = entry.target;
+        el.style.transitionDelay = Math.min(shown++, 5) * 70 + "ms"; // cards arriving together come in one by one
+        el.classList.add("is-visible");
+        io.unobserve(el);
+        // Once it has arrived, hand the element back to its own hover transitions.
+        setTimeout(function () { el.classList.remove("reveal", "is-visible"); el.style.transitionDelay = ""; }, 1200);
       });
     }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
     items.forEach(function (el) { io.observe(el); });
+  }
+
+  /* --- Show / hide password: one box to type instead of two -------------- */
+  function initPasswordToggles() {
+    $$('input[type="password"]').forEach(function (input) {
+      if (input.disabled) return;
+      var wrap = el("span", { "class": "password-field" });
+      input.parentNode.insertBefore(wrap, input);
+      wrap.appendChild(input);
+      var button = el("button", { type: "button", "class": "password-toggle" }, T.showPassword);
+      button.addEventListener("click", function () {
+        var show = input.type === "password";
+        input.type = show ? "text" : "password";
+        button.textContent = show ? T.hidePassword : T.showPassword;
+      });
+      wrap.appendChild(button);
+    });
+  }
+
+  /* --- Header: a soft shadow once the page scrolls beneath it ------------- */
+  function initHeader() {
+    var header = $(".site-header");
+    if (!header) return;
+    var update = function () { header.classList.toggle("is-scrolled", window.scrollY > 8); };
+    update();
+    window.addEventListener("scroll", update, { passive: true });
   }
 
   /* --- Hide images that fail to load (e.g. an external photo host is down) -- */
@@ -401,6 +452,8 @@
     initImageFallback();
     initMobileCta();
     initReveal();
+    initHeader();
+    initPasswordToggles();
     initThemeToggle();
     initMenu();
     initAccountMenu();

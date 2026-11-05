@@ -1,6 +1,6 @@
 <!doctype html>
 
-<html lang="en" dir="ltr" class="no-js">
+<html lang="en" dir="ltr" class="no-js" data-accent="gold" data-default-theme="dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,17 +18,19 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&display=swap">
-  <link rel="stylesheet" href="../static/css/taui.52f208c3f38a.css">
+  <link rel="stylesheet" href="../static/css/taui.92ffdbb45d2c.css">
   <script>
-    document.documentElement.classList.replace("no-js", "js");
-    try {
-      if (localStorage.getItem("taui-theme") === "light") {
-        document.documentElement.dataset.theme = "light";
+    (function () {
+      var root = document.documentElement, saved = null;
+      root.classList.replace("no-js", "js");
+      try { saved = localStorage.getItem("taui-theme"); } catch (e) { /* storage blocked: use the site default */ }
+      if (saved === "light" || (!saved && root.dataset.defaultTheme === "light")) {
+        root.dataset.theme = "light";
         document.querySelector('meta[name="theme-color"]').content = "#FAF7F0";
       }
-    } catch (e) { /* storage blocked: stay on the default theme */ }
+    })();
   </script>
-  <script src="../static/js/app.bb1b5153d50b.js" defer></script>
+  <script src="../static/js/app.c7870bd844bf.js" defer></script>
   
 <meta name="robots" content="noindex, nofollow"><meta name="display-page" content="page"><meta name="display-checkout" content="pay/PY-H5YKCF28/test-checkout/index.html"><link rel="stylesheet" href="../display/display.css"><script src="../display/display.js" defer></script></head>
 <body class="">
@@ -47,6 +49,7 @@
 
     <nav class="nav" aria-label="Main">
       <ul class="nav__list">
+        <li><a class="nav__link" href="index.html" aria-current="page">Home</a></li>
         <li><a class="nav__link" href="trips/index.html" >Explore trips</a></li>
         <li><a class="nav__link" href="plan/index.html" >Custom trip</a></li>
         <li><a class="nav__link" href="#destinations">Destinations</a></li>
@@ -76,7 +79,7 @@
       </details>
       
 
-      <a class="btn btn--accent" href="plan/index.html">Build my trip</a>
+      <a class="btn btn--accent" href="trips/index.html">Trips</a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" data-menu-toggle>
         <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></svg><span class="visually-hidden">Open menu</span>
       </button>
@@ -85,6 +88,7 @@
   <div class="mobile-nav" id="mobile-nav" hidden>
     <div class="container">
       <ul>
+        <li><a href="index.html"><svg class="icon icon--sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg>Home</a></li>
         <li><a href="trips/index.html">Explore trips</a></li>
         <li><a href="plan/index.html">Custom trip</a></li>
         <li><a href="#destinations">Destinations</a></li>
@@ -96,6 +100,7 @@
   </div>
 </header>
 
+  
   
   
   
@@ -145,50 +150,6 @@
   
   <p class="hero__credit">Photo: <a href="https://commons.wikimedia.org/wiki/File:Balloon_over_Luxor_-_Egypt.jpg" rel="noopener" target="_blank">Marcosleal</a>, CC BY-SA 3.0</p>
   
-</section>
-
-
-<section class="section" id="about" aria-labelledby="about-title">
-  <div class="container about">
-    <div class="arch reveal">
-      <div class="arch__main"><img src="../media/uploads/2026/11/aswan_nile.jpg" alt="The Nile at Aswan with Elephantine Island" loading="lazy" decoding="async">
-</div>
-      <div class="arch__inset"><img src="../media/uploads/2026/11/dahab_blue_hole.jpg" alt="Panorama of the Blue Hole coast near Dahab" loading="lazy" decoding="async">
-</div>
-    </div>
-    <div class="about__text reveal">
-      <p class="eyebrow">About TAUI</p>
-      <h2 id="about-title"><span class="text-gold">TAUI</span><br>Egypt, planned with care</h2>
-      <p>TAUI brings together ready-made trips and fully personalised journeys across Egypt — from the temples of Upper Egypt to the reefs of the Red Sea. Clear prices, honest details and a team that looks after every booking personally.</p>
-      <div class="stats">
-        <div class="stat-card"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><strong>13</strong><span>Destinations across Egypt</span></div>
-        <div class="stat-card"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg><strong>13</strong><span>Trips ready to book</span></div>
-        <div class="stat-card"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.28 1.28L3 12l5.8 1.9a2 2 0 0 1 1.28 1.28L12 21l1.9-5.8a2 2 0 0 1 1.28-1.28L21 12l-5.8-1.9a2 2 0 0 1-1.28-1.28Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg><strong>4</strong><span>Travel styles</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<section class="section" aria-labelledby="why-title">
-  <div class="container">
-    <div class="section-head">
-      <div>
-        <p class="eyebrow">Why TAUI</p>
-        <h2 id="why-title">Travel planning without the guesswork</h2>
-      </div>
-    </div>
-    <div class="grid grid--3">
-      <div class="feature reveal"><span class="feature__icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"/><path d="M3 5v14a2 2 0 0 0 2 2h16v-5"/><path d="M18 12a2 2 0 0 0 0 4h4v-4Z"/></svg></span><div><h3>Clear prices in EGP</h3><p>Adult and child prices are shown on every trip, and your total is calculated automatically — no hidden extras.</p></div></div>
-      
-      <div class="feature reveal"><span class="feature__icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span><div><h3>Secure online payment</h3><p>Pay by card or mobile wallet on the payment provider's secure page. Your booking is confirmed as soon as payment succeeds.</p></div></div>
-      
-      <div class="feature reveal"><span class="feature__icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14.1 5.55a2 2 0 0 0 1.79 0l3.66-1.83A1 1 0 0 1 21 4.62v12.76a1 1 0 0 1-.55.9l-4.55 2.27a2 2 0 0 1-1.79 0l-4.21-2.1a2 2 0 0 0-1.79 0l-3.66 1.83A1 1 0 0 1 3 19.38V6.62a1 1 0 0 1 .55-.9l4.55-2.27a2 2 0 0 1 1.79 0z"/><path d="M15 5.76v15"/><path d="M9 3.24v15"/></svg></span><div><h3>All of Egypt in one place</h3><p>Upper Egypt, Sinai, the Red Sea, the oases and the Mediterranean coast.</p></div></div>
-      <div class="feature reveal"><span class="feature__icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg></span><div><h3>Fixed departure dates</h3><p>Every trip shows its upcoming dates and remaining seats, with a day-by-day itinerary.</p></div></div>
-      <div class="feature reveal"><span class="feature__icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></span><div><h3>Arabic and English</h3><p>Use TAUI in the language you prefer — your choice is remembered.</p></div></div>
-      <div class="feature reveal"><span class="feature__icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2"/><path d="M13 17v2"/><path d="M13 11v2"/></svg></span><div><h3>Everything in your account</h3><p>Sign in with Google, email or phone and follow your bookings and payments in one place.</p></div></div>
-    </div>
-  </div>
 </section>
 
 
@@ -259,6 +220,31 @@
       <a class="btn btn--lg" href="trips/index.html"><svg class="icon icon--sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m16.24 7.76-2.12 6.36-6.36 2.12 2.12-6.36z"/></svg>View all trips (13)<svg class="icon icon--dir icon--sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
     </div>
     
+  </div>
+</section>
+
+
+
+
+
+<section class="section" aria-labelledby="why-title">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">Why TAUI</p>
+        <h2 id="why-title">Travel planning without the guesswork</h2>
+      </div>
+    </div>
+    <div class="grid grid--3">
+      <div class="feature reveal"><span class="feature__icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"/><path d="M3 5v14a2 2 0 0 0 2 2h16v-5"/><path d="M18 12a2 2 0 0 0 0 4h4v-4Z"/></svg></span><div><h3>Clear prices in EGP</h3><p>Adult and child prices are shown on every trip, and your total is calculated automatically — no hidden extras.</p></div></div>
+      
+      <div class="feature reveal"><span class="feature__icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span><div><h3>Secure online payment</h3><p>Pay by card or mobile wallet on the payment provider's secure page. Your booking is confirmed as soon as payment succeeds.</p></div></div>
+      
+      <div class="feature reveal"><span class="feature__icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14.1 5.55a2 2 0 0 0 1.79 0l3.66-1.83A1 1 0 0 1 21 4.62v12.76a1 1 0 0 1-.55.9l-4.55 2.27a2 2 0 0 1-1.79 0l-4.21-2.1a2 2 0 0 0-1.79 0l-3.66 1.83A1 1 0 0 1 3 19.38V6.62a1 1 0 0 1 .55-.9l4.55-2.27a2 2 0 0 1 1.79 0z"/><path d="M15 5.76v15"/><path d="M9 3.24v15"/></svg></span><div><h3>All of Egypt in one place</h3><p>Upper Egypt, Sinai, the Red Sea, the oases and the Mediterranean coast.</p></div></div>
+      <div class="feature reveal"><span class="feature__icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg></span><div><h3>Fixed departure dates</h3><p>Every trip shows its upcoming dates and remaining seats, with a day-by-day itinerary.</p></div></div>
+      <div class="feature reveal"><span class="feature__icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></span><div><h3>Arabic and English</h3><p>Use TAUI in the language you prefer — your choice is remembered.</p></div></div>
+      <div class="feature reveal"><span class="feature__icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2"/><path d="M13 17v2"/><path d="M13 11v2"/></svg></span><div><h3>Everything in your account</h3><p>Sign in with Google, email or phone and follow your bookings and payments in one place.</p></div></div>
+    </div>
   </div>
 </section>
 
@@ -386,105 +372,14 @@
 
 
 
-<section class="section" aria-labelledby="styles-title">
-  <div class="container">
-    <div class="section-head">
-      <div>
-        <p class="eyebrow">Trip styles</p>
-        <h2 id="styles-title">Choose a trip that suits your mood</h2>
-      </div>
-      <p>From royal heritage to quiet escapes — explore trips by what you love.</p>
-    </div>
-    <div class="grid grid--4">
-      
-      <a class="lux-card style-card reveal" href="trips/index.html?category=nature-adventure">
-        <span class="icon-chip"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></svg></span>
-        <h3>Nature &amp; adventure</h3>
-        <span class="link-arrow">View trips<svg class="icon icon--dir icon--sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
-      </a>
-      
-      <a class="lux-card style-card reveal" href="trips/index.html?category=history">
-        <span class="icon-chip"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 22h18"/><path d="M6 18v-7"/><path d="M10 18v-7"/><path d="M14 18v-7"/><path d="M18 18v-7"/><path d="M12 2 20 7H4z"/></svg></span>
-        <h3>Historical sites</h3>
-        <span class="link-arrow">View trips<svg class="icon icon--dir icon--sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
-      </a>
-      
-      <a class="lux-card style-card reveal" href="trips/index.html?category=relaxation">
-        <span class="icon-chip"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg></span>
-        <h3>Relaxation</h3>
-        <span class="link-arrow">View trips<svg class="icon icon--dir icon--sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
-      </a>
-      
-      <a class="lux-card style-card reveal" href="trips/index.html?category=beaches">
-        <span class="icon-chip"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/></svg></span>
-        <h3>Beaches &amp; sea</h3>
-        <span class="link-arrow">View trips<svg class="icon icon--dir icon--sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
-      </a>
-      
-      <a class="lux-card style-card reveal" href="trips/index.html?category=culture">
-        <span class="icon-chip"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="13.5" cy="6.5" r="1"/><circle cx="17.5" cy="10.5" r="1"/><circle cx="8.5" cy="7.5" r="1"/><circle cx="6.5" cy="12.5" r="1"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.93 0 1.65-.75 1.65-1.69 0-.44-.18-.84-.44-1.13-.29-.29-.44-.65-.44-1.13a1.64 1.64 0 0 1 1.67-1.67h2c3.05 0 5.55-2.5 5.55-5.55C21.97 6.01 17.46 2 12 2z"/></svg></span>
-        <h3>Culture &amp; local life</h3>
-        <span class="link-arrow">View trips<svg class="icon icon--dir icon--sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
-      </a>
-      
-      <a class="lux-card style-card reveal" href="trips/index.html?category=family">
-        <span class="icon-chip"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
-        <h3>Family friendly</h3>
-        <span class="link-arrow">View trips<svg class="icon icon--dir icon--sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
-      </a>
-      
-      <a class="lux-card style-card reveal" href="trips/index.html?category=honeymoon">
-        <span class="icon-chip"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg></span>
-        <h3>Honeymoon</h3>
-        <span class="link-arrow">View trips<svg class="icon icon--dir icon--sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
-      </a>
-      
-    </div>
-  </div>
-</section>
 
 
 
-<section class="section" aria-labelledby="how-title">
-  <div class="container">
-    <div class="section-head">
-      <div>
-        <p class="eyebrow">How TAUI works</p>
-        <h2 id="how-title">Book your trip in four steps</h2>
-      </div>
-    </div>
-    <ol class="steps">
-      <li class="reveal"><h3>Choose your trip</h3><p>Browse the trips, compare dates and prices, and open the one you like to see every detail.</p></li>
-      <li class="reveal"><h3>Fill in your details</h3><p>Sign in, pick your date and add the travelers — the total is calculated for you.</p></li>
-      
-      <li class="reveal"><h3>Pay securely</h3><p>Pay online by card or mobile wallet. Your booking is confirmed instantly.</p></li>
-      
-      <li class="reveal"><h3>Travel better</h3><p>Follow your booking from your TAUI account and enjoy the trip.</p></li>
-    </ol>
-  </div>
-</section>
 
 
-<section class="section" aria-labelledby="custom-title">
-  <div class="container">
-    <article class="path-card path-card--dark path-card--wide reveal">
-      <div>
-        <span class="icon-chip"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="6" cy="19" r="3"/><path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15"/><circle cx="18" cy="5" r="3"/></svg></span>
-        <p class="eyebrow mt-2">Custom trips</p>
-        <h2 id="custom-title" class="h2-display">Didn't find your trip? We'll build it for you</h2>
-        <p>Tell us where, when, who's coming, your travel style and what you enjoy. We'll propose an itinerary and quote.</p>
-      </div>
-      <div>
-        <ul>
-          <li><svg class="icon icon--sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"/></svg>One or several destinations</li>
-          <li><svg class="icon icon--sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"/></svg>From Economy to First Class comfort</li>
-          <li><svg class="icon icon--sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"/></svg>Accept or decline the proposal from your account</li>
-        </ul>
-        <a class="btn" href="plan/index.html"><svg class="icon icon--sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.28 1.28L3 12l5.8 1.9a2 2 0 0 1 1.28 1.28L12 21l1.9-5.8a2 2 0 0 1 1.28-1.28L21 12l-5.8-1.9a2 2 0 0 1-1.28-1.28Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg>Build my trip</a>
-      </div>
-    </article>
-  </div>
-</section>
+
+
+
 
 
 
@@ -516,17 +411,17 @@
   
   <details>
     <summary>How do I pay?<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></summary>
-    <div class="faq__answer"><p>Online payment is not available yet. After reviewing your request, our team contacts you with the available payment options. Never share card details by message or email.</p></div>
+    <div class="faq__answer"><p>You pay online when you book, by bank card or mobile wallet, on the payment provider&#x27;s secure page. You usually receive your booking confirmation by email as soon as the payment goes through. Never share card details by message or email.</p></div>
   </details>
   
   <details>
     <summary>Can I change or cancel my request?<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></summary>
-    <div class="faq__answer"><p>Yes. Requests that have not been processed yet can be changed or cancelled from your account. After that, contact us and we will help according to the package&#x27;s cancellation policy.</p></div>
+    <div class="faq__answer"><p>Before you pay, you can change or cancel a trip booking from your account. After payment, contact us and we will help according to the trip&#x27;s cancellation policy.</p></div>
   </details>
   
   <details>
     <summary>Are prices per person?<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></summary>
-    <div class="faq__answer"><p>Package prices are shown per adult in Egyptian pounds (EGP). Children&#x27;s prices and group discounts, when available, are listed on each package. The estimated total is calculated by our system when you submit.</p></div>
+    <div class="faq__answer"><p>Trip prices are shown per adult in Egyptian pounds (EGP). Children&#x27;s prices and group discounts, when available, are listed on each trip. Our system calculates your total and shows it before you pay.</p></div>
   </details>
   
 </div>
@@ -613,7 +508,8 @@
   </div>
 </footer>
 
-  <script id="taui-i18n" type="application/json">{"openMenu": "Open menu", "closeMenu": "Close menu", "estimate": "Estimated total", "groupDiscount": "Group discount", "perAdult": "per adult", "adultName": "Adult %(n)s \u2014 full name", "adultsLine": "%(n)s \u00d7 adult", "childrenLine": "%(n)s \u00d7 child", "childName": "Child %(n)s \u2014 full name", "stepIncomplete": "Please complete the highlighted fields to continue.", "notProvided": "Not provided", "none": "None selected", "days": "days", "adults": "Adults", "children": "Children", "flexible": "Flexible dates", "close": "Close", "next": "Next", "previous": "Previous", "photo": "Photo", "confirmAction": "Are you sure?", "edit": "Edit", "listSep": ", ", "currencyPrefix": "EGP ", "currencySuffix": ""}</script>
+  
+  <script id="taui-i18n" type="application/json">{"openMenu": "Open menu", "closeMenu": "Close menu", "estimate": "Estimated total", "groupDiscount": "Group discount", "perAdult": "per adult", "adultName": "Adult %(n)s \u2014 full name", "adultsLine": "%(n)s \u00d7 adult", "childrenLine": "%(n)s \u00d7 child", "childName": "Child %(n)s \u2014 full name", "stepIncomplete": "Please complete the highlighted fields to continue.", "notProvided": "Not provided", "none": "None selected", "days": "days", "adults": "Adults", "children": "Children", "flexible": "Flexible dates", "close": "Close", "next": "Next", "previous": "Previous", "photo": "Photo", "confirmAction": "Are you sure?", "edit": "Edit", "showPassword": "Show", "hidePassword": "Hide", "listSep": ", ", "currencyPrefix": "EGP ", "currencySuffix": ""}</script>
   
 </body>
 </html>

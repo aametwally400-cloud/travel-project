@@ -1,6 +1,6 @@
 <!doctype html>
 
-<html lang="ar" dir="rtl" class="no-js">
+<html lang="ar" dir="rtl" class="no-js" data-accent="gold" data-default-theme="dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,17 +20,19 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&display=swap">
-  <link rel="stylesheet" href="../../../static/css/taui.52f208c3f38a.css">
+  <link rel="stylesheet" href="../../../static/css/taui.92ffdbb45d2c.css">
   <script>
-    document.documentElement.classList.replace("no-js", "js");
-    try {
-      if (localStorage.getItem("taui-theme") === "light") {
-        document.documentElement.dataset.theme = "light";
+    (function () {
+      var root = document.documentElement, saved = null;
+      root.classList.replace("no-js", "js");
+      try { saved = localStorage.getItem("taui-theme"); } catch (e) { /* storage blocked: use the site default */ }
+      if (saved === "light" || (!saved && root.dataset.defaultTheme === "light")) {
+        root.dataset.theme = "light";
         document.querySelector('meta[name="theme-color"]').content = "#FAF7F0";
       }
-    } catch (e) { /* storage blocked: stay on the default theme */ }
+    })();
   </script>
-  <script src="../../../static/js/app.bb1b5153d50b.js" defer></script>
+  <script src="../../../static/js/app.c7870bd844bf.js" defer></script>
   
 <meta name="robots" content="noindex, nofollow"><meta name="display-page" content="staff"><meta name="display-checkout" content="../../../pay/PY-H5YKCF28/test-checkout/index.html"><link rel="stylesheet" href="../../../display/display.css"><script src="../../../display/display.js" defer></script></head>
 <body class="staff-body">
@@ -49,6 +51,7 @@
 
     <nav class="nav" aria-label="القائمة الرئيسية">
       <ul class="nav__list">
+        <li><a class="nav__link" href="../../../index.html" >الرئيسية</a></li>
         <li><a class="nav__link" href="../../../trips/index.html" >استكشف الرحلات</a></li>
         <li><a class="nav__link" href="../../../plan/index.html" >رحلة مخصصة</a></li>
         <li><a class="nav__link" href="../../../index.html#destinations">الوجهات</a></li>
@@ -78,7 +81,7 @@
       </details>
       
 
-      <a class="btn btn--accent" href="../../../plan/index.html">صمّم رحلتي</a>
+      <a class="btn btn--accent" href="../../../trips/index.html">الرحلات</a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" data-menu-toggle>
         <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></svg><span class="visually-hidden">فتح القائمة</span>
       </button>
@@ -87,6 +90,7 @@
   <div class="mobile-nav" id="mobile-nav" hidden>
     <div class="container">
       <ul>
+        <li><a href="../../../index.html"><svg class="icon icon--sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg>الرئيسية</a></li>
         <li><a href="../../../trips/index.html">استكشف الرحلات</a></li>
         <li><a href="../../../plan/index.html">رحلة مخصصة</a></li>
         <li><a href="../../../index.html#destinations">الوجهات</a></li>
@@ -98,6 +102,7 @@
   </div>
 </header>
 
+  
   
   
   
@@ -117,6 +122,14 @@
       <li class="nav-group">الكتالوج</li>
       <li><a href="../../packages/index.html" ><svg class="icon icon--sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>الرحلات والأسعار</a></li>
       <li><a href="../index.html" aria-current="page"><svg class="icon icon--sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14.1 5.55a2 2 0 0 0 1.79 0l3.66-1.83A1 1 0 0 1 21 4.62v12.76a1 1 0 0 1-.55.9l-4.55 2.27a2 2 0 0 1-1.79 0l-4.21-2.1a2 2 0 0 0-1.79 0l-3.66 1.83A1 1 0 0 1 3 19.38V6.62a1 1 0 0 1 .55-.9l4.55-2.27a2 2 0 0 1 1.79 0z"/><path d="M15 5.76v15"/><path d="M9 3.24v15"/></svg>الوجهات</a></li>
+      <li class="nav-group">الموقع</li>
+      
+      <li><a href="../../site/contact/index.html" ><svg class="icon icon--sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>بيانات التواصل</a></li>
+      <li><a href="../../site/home/index.html" ><svg class="icon icon--sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg>الصفحة الرئيسية</a></li>
+      <li><a href="../../site/design/index.html" ><svg class="icon icon--sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.28 1.28L3 12l5.8 1.9a2 2 0 0 1 1.28 1.28L12 21l1.9-5.8a2 2 0 0 1 1.28-1.28L21 12l-5.8-1.9a2 2 0 0 1-1.28-1.28Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg>التصميم</a></li>
+      <li><a href="../../site/texts/index.html" ><svg class="icon icon--sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/></svg>نصوص الموقع</a></li>
+      <li><a href="../../site/faqs/index.html" ><svg class="icon icon--sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>الأسئلة الشائعة</a></li>
+      <li><a href="../../site/pages/index.html" ><svg class="icon icon--sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m9 12 2 2 4-4"/></svg>صفحات السياسات</a></li>
       
       <li class="nav-group">المزيد</li>
       <li><a href="../../../index.html"><svg class="icon icon--sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg>عرض الموقع</a></li>
@@ -284,7 +297,8 @@ Start with the Giza plateau, explore Egypt&#x27;s major museums and walk histori
 
   </main>
   
-  <script id="taui-i18n" type="application/json">{"openMenu": "\u0641\u062a\u062d \u0627\u0644\u0642\u0627\u0626\u0645\u0629", "closeMenu": "\u0625\u063a\u0644\u0627\u0642 \u0627\u0644\u0642\u0627\u0626\u0645\u0629", "estimate": "\u0627\u0644\u0625\u062c\u0645\u0627\u0644\u064a \u0627\u0644\u062a\u0642\u062f\u064a\u0631\u064a", "groupDiscount": "\u062e\u0635\u0645 \u0627\u0644\u0645\u062c\u0645\u0648\u0639\u0629", "perAdult": "\u0644\u0644\u0628\u0627\u0644\u063a", "adultName": "\u0627\u0644\u0628\u0627\u0644\u063a %(n)s \u2014 \u0627\u0644\u0627\u0633\u0645 \u0628\u0627\u0644\u0643\u0627\u0645\u0644", "adultsLine": "%(n)s \u00d7 \u0628\u0627\u0644\u063a", "childrenLine": "%(n)s \u00d7 \u0637\u0641\u0644", "childName": "\u0627\u0644\u0637\u0641\u0644 %(n)s \u2014 \u0627\u0644\u0627\u0633\u0645 \u0628\u0627\u0644\u0643\u0627\u0645\u0644", "stepIncomplete": "\u064a\u064f\u0631\u062c\u0649 \u0627\u0633\u062a\u0643\u0645\u0627\u0644 \u0627\u0644\u062d\u0642\u0648\u0644 \u0627\u0644\u0645\u062d\u062f\u062f\u0629 \u0644\u0644\u0645\u062a\u0627\u0628\u0639\u0629.", "notProvided": "\u063a\u064a\u0631 \u0645\u0630\u0643\u0648\u0631", "none": "\u0644\u0645 \u064a\u062a\u0645 \u0627\u0644\u0627\u062e\u062a\u064a\u0627\u0631", "days": "\u0623\u064a\u0627\u0645", "adults": "\u0627\u0644\u0628\u0627\u0644\u063a\u0648\u0646", "children": "\u0627\u0644\u0623\u0637\u0641\u0627\u0644", "flexible": "\u062a\u0648\u0627\u0631\u064a\u062e \u0645\u0631\u0646\u0629", "close": "\u0625\u063a\u0644\u0627\u0642", "next": "\u0627\u0644\u062a\u0627\u0644\u064a", "previous": "\u0627\u0644\u0633\u0627\u0628\u0642", "photo": "\u0635\u0648\u0631\u0629", "confirmAction": "\u0647\u0644 \u0623\u0646\u062a \u0645\u062a\u0623\u0643\u062f\u061f", "edit": "\u062a\u0639\u062f\u064a\u0644", "listSep": "\u060c ", "currencyPrefix": "", "currencySuffix": " \u062c.\u0645"}</script>
+  
+  <script id="taui-i18n" type="application/json">{"openMenu": "\u0641\u062a\u062d \u0627\u0644\u0642\u0627\u0626\u0645\u0629", "closeMenu": "\u0625\u063a\u0644\u0627\u0642 \u0627\u0644\u0642\u0627\u0626\u0645\u0629", "estimate": "\u0627\u0644\u0625\u062c\u0645\u0627\u0644\u064a \u0627\u0644\u062a\u0642\u062f\u064a\u0631\u064a", "groupDiscount": "\u062e\u0635\u0645 \u0627\u0644\u0645\u062c\u0645\u0648\u0639\u0629", "perAdult": "\u0644\u0644\u0628\u0627\u0644\u063a", "adultName": "\u0627\u0644\u0628\u0627\u0644\u063a %(n)s \u2014 \u0627\u0644\u0627\u0633\u0645 \u0628\u0627\u0644\u0643\u0627\u0645\u0644", "adultsLine": "%(n)s \u00d7 \u0628\u0627\u0644\u063a", "childrenLine": "%(n)s \u00d7 \u0637\u0641\u0644", "childName": "\u0627\u0644\u0637\u0641\u0644 %(n)s \u2014 \u0627\u0644\u0627\u0633\u0645 \u0628\u0627\u0644\u0643\u0627\u0645\u0644", "stepIncomplete": "\u064a\u064f\u0631\u062c\u0649 \u0627\u0633\u062a\u0643\u0645\u0627\u0644 \u0627\u0644\u062d\u0642\u0648\u0644 \u0627\u0644\u0645\u062d\u062f\u062f\u0629 \u0644\u0644\u0645\u062a\u0627\u0628\u0639\u0629.", "notProvided": "\u063a\u064a\u0631 \u0645\u0630\u0643\u0648\u0631", "none": "\u0644\u0645 \u064a\u062a\u0645 \u0627\u0644\u0627\u062e\u062a\u064a\u0627\u0631", "days": "\u0623\u064a\u0627\u0645", "adults": "\u0627\u0644\u0628\u0627\u0644\u063a\u0648\u0646", "children": "\u0627\u0644\u0623\u0637\u0641\u0627\u0644", "flexible": "\u062a\u0648\u0627\u0631\u064a\u062e \u0645\u0631\u0646\u0629", "close": "\u0625\u063a\u0644\u0627\u0642", "next": "\u0627\u0644\u062a\u0627\u0644\u064a", "previous": "\u0627\u0644\u0633\u0627\u0628\u0642", "photo": "\u0635\u0648\u0631\u0629", "confirmAction": "\u0647\u0644 \u0623\u0646\u062a \u0645\u062a\u0623\u0643\u062f\u061f", "edit": "\u062a\u0639\u062f\u064a\u0644", "showPassword": "\u0625\u0638\u0647\u0627\u0631", "hidePassword": "\u0625\u062e\u0641\u0627\u0621", "listSep": "\u060c ", "currencyPrefix": "", "currencySuffix": " \u062c.\u0645"}</script>
   
 </body>
 </html>
